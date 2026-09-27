@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian Family Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C1B19;
+    --cream:#FAF7F2;
+    --teal:#1E4B43;
+    --amber:#C98A3D;
+    --line: rgba(28,27,25,0.13);
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ font-family: var(--sans); color: var(--ink); background: var(--cream); line-height:1.65; }
+  a{ color:inherit; }
+  .wrap{ max-width: 1120px; margin:0 auto; padding: 0 24px; }
+  img{ max-width:100%; display:block; }
+
+  /* ---------- Top bar ---------- */
+  .topbar{ background: var(--teal); color: var(--cream); font-size:0.85rem; }
+  .topbar .wrap{ display:flex; justify-content:space-between; padding: 8px 24px; flex-wrap:wrap; gap:8px; }
+
+  /* ---------- Nav ---------- */
+  .nav{ background: var(--cream); border-bottom: 1px solid var(--line); }
+  .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:80px; }
+  .brand{ font-family: var(--serif); font-size:1.4rem; font-weight:600; color: var(--teal); }
+  .nav-links{ display:flex; gap:30px; list-style:none; }
+  .nav-links a{ text-decoration:none; font-size:0.92rem; font-weight:500; }
+  .nav-links a:hover{ color: var(--teal); }
+  .nav-cta{ background: var(--amber); color: var(--ink); padding:11px 22px; border-radius:3px; text-decoration:none; font-weight:600; font-size:0.9rem; }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding: 76px 0; }
+  .hero .wrap{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; align-items:center; }
+  .hero .kicker{ font-size:0.85rem; font-weight:700; color: var(--teal); letter-spacing:0.03em; margin-bottom:16px; }
+  .hero h1{ font-family: var(--serif); font-weight:600; font-size: clamp(2.4rem,4.6vw,3.6rem); line-height:1.15; max-width:14ch; }
+  .hero p{ margin-top:20px; font-size:1.08rem; color: rgba(28,27,25,0.72); max-width:44ch; }
+  .hero-ctas{ margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-primary{ background: var(--teal); color: var(--cream); padding:14px 28px; border-radius:3px; text-decoration:none; font-weight:600; font-size:0.94rem; }
+  .btn-secondary{ padding:14px 28px; border-radius:3px; text-decoration:none; font-weight:600; font-size:0.94rem; border:1px solid var(--ink); }
+  .hero-art{
+    border: 1px solid var(--line); border-radius:6px; background:#fff;
+    aspect-ratio: 4/5; display:flex; align-items:center; justify-content:center;
+  }
+  .hero-art svg{ width:64%; height:64%; }
+  @media (max-width:860px){ .hero .wrap{ grid-template-columns:1fr; } .hero-art{ order:-1; max-width:280px; margin:0 auto; } }
+
+  /* ---------- Section shell ---------- */
+  section{ padding: 88px 0; }
+  .section-head{ margin-bottom: 44px; max-width:56ch; }
+  .kicker{ font-size:0.85rem; font-weight:700; color: var(--teal); letter-spacing:0.03em; margin-bottom:10px; }
+  h2{ font-family: var(--serif); font-weight:600; font-size: clamp(1.8rem,3vw,2.4rem); }
+  .section-head p{ margin-top:12px; color: rgba(28,27,25,0.65); }
+
+  /* ---------- Services (icon list) ---------- */
+  .services{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+  .service{ background:#fff; padding: 30px 26px; }
+  .service svg{ width:34px; height:34px; margin-bottom:14px; }
+  .service h3{ font-family: var(--serif); font-weight:600; font-size:1.15rem; }
+  .service p{ font-size:0.92rem; color: rgba(28,27,25,0.62); margin-top:8px; }
+  @media (max-width:860px){ .services{ grid-template-columns:1fr; } }
+
+  /* ---------- Doctors ---------- */
+  .doctors{ background: #fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .doctor-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+  .doctor .initial{
+    width:60px; height:60px; border-radius:50%; background: var(--teal); color: var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--serif); font-size:1.3rem; margin-bottom:16px;
+  }
+  .doctor h3{ font-family: var(--serif); font-weight:600; font-size:1.12rem; }
+  .doctor .role{ font-size:0.85rem; color: var(--teal); font-weight:600; margin-top:2px; }
+  .doctor p{ font-size:0.9rem; color: rgba(28,27,25,0.62); margin-top:10px; }
+  @media (max-width:800px){ .doctor-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Insurance / info strip ---------- */
+  .info{ background: var(--teal); color: var(--cream); }
+  .info .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; padding: 36px 24px; }
+  .info-block b{ display:block; font-family: var(--serif); font-weight:600; font-size:1rem; margin-bottom:4px; }
+  .info-block span{ font-size:0.88rem; color: rgba(250,247,242,0.85); }
+
+  /* ---------- Appointment form ---------- */
+  .booking .wrap{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:56px; }
+  .booking .section-head{ margin-bottom:0; }
+  form{ display:grid; gap:16px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  label{ display:block; font-size:0.82rem; font-weight:600; margin-bottom:6px; }
+  input, select, textarea{
+    width:100%; padding:12px 14px; font-family: var(--sans); font-size:0.95rem;
+    border:1px solid var(--line); background: #fff; border-radius:3px;
+  }
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--teal); outline-offset:1px; }
+  .submit-btn{
+    justify-self:start; background: var(--teal); color: var(--cream);
+    border:none; padding:14px 30px; font-weight:700; font-size:0.95rem; border-radius:3px; cursor:pointer;
+  }
+  .submit-btn:hover{ background:#163a34; }
+  .form-note{ font-size:0.82rem; color: rgba(28,27,25,0.55); }
+  @media (max-width:860px){ .booking .wrap{ grid-template-columns:1fr; } .form-row{ grid-template-columns:1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer{ border-top:1px solid var(--line); padding: 40px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:0.88rem; color: rgba(28,27,25,0.65); }
+  footer .brand{ font-size:1rem; color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Mon–Fri, 8am–6pm · Sat, 9am–1pm</span>
+    <span>Urgent same-day slots available — call (555) 040-1188</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand">Meridian Clinic</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#doctors">Our Doctors</a></li>
+      <li><a href="#insurance">Insurance</a></li>
+      <li><a href="#book">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#book">Book appointment</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">FAMILY &amp; GENERAL MEDICINE</div>
+      <h1>Care that has time for the whole conversation.</h1>
+      <p>A neighborhood clinic offering check-ups, chronic care management, vaccinations, and same-day visits — with appointments that don't feel rushed.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#book">Book an appointment</a>
+        <a class="btn-secondary" href="#services">See our services</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M70 30v40a30 30 0 0060 0V30" stroke="#1E4B43" stroke-width="3"/>
+        <path d="M70 30h-14M130 30h14" stroke="#1E4B43" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="100" cy="110" r="14" stroke="#1E4B43" stroke-width="3"/>
+        <path d="M100 124v20a30 30 0 0030 30" stroke="#C98A3D" stroke-width="3"/>
+        <circle cx="132" cy="176" r="6" fill="#C98A3D"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">SERVICES</div>
+      <h2>What we treat, day to day</h2>
+      <p>General practice care for the whole family, plus a few things you'd normally have to book elsewhere.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#1E4B43" stroke-width="2"><circle cx="20" cy="14" r="7"/><path d="M8 34c0-8 5-13 12-13s12 5 12 13"/></svg>
+        <h3>General check-ups</h3>
+        <p>Annual physicals, wellness visits, and preventive screening.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#1E4B43" stroke-width="2"><rect x="8" y="8" width="24" height="24" rx="3"/><path d="M14 20h12M20 14v12"/></svg>
+        <h3>Vaccinations</h3>
+        <p>Routine immunizations, travel vaccines, and flu shots.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#1E4B43" stroke-width="2"><path d="M6 22h6l4-10 6 18 4-14 3 6h5"/></svg>
+        <h3>Chronic care management</h3>
+        <p>Ongoing support for diabetes, hypertension, and long-term conditions.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#1E4B43" stroke-width="2"><path d="M20 8v24M8 20h24"/><circle cx="20" cy="20" r="15"/></svg>
+        <h3>Same-day urgent visits</h3>
+        <p>Reserved daily slots for illness or injury that can't wait for a booking.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#1E4B43" stroke-width="2"><rect x="7" y="10" width="26" height="20" rx="2"/><path d="M7 14h26M14 22h6"/></svg>
+        <h3>Lab work &amp; testing</h3>
+        <p>Bloodwork and diagnostics on-site, with most results in 24–48 hours.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#1E4B43" stroke-width="2"><rect x="10" y="6" width="20" height="28" rx="3"/><path d="M16 12h8M16 18h8"/><circle cx="20" cy="26" r="2" fill="#1E4B43"/></svg>
+        <h3>Telehealth follow-ups</h3>
+        <p>Video visits for prescription renewals and check-in appointments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="doctors" id="doctors">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">OUR DOCTORS</div>
+      <h2>The people you'll actually see</h2>
+    </div>
+    <div class="doctor-grid">
+      <div class="doctor">
+        <div class="initial">DR</div>
+        <h3>Dr. Rachel Okafor</h3>
+        <div class="role">Family Medicine</div>
+        <p>15 years in general practice, with a focus on chronic disease management.</p>
+      </div>
+      <div class="doctor">
+        <div class="initial">DL</div>
+        <h3>Dr. David Lin</h3>
+        <div class="role">Internal Medicine</div>
+        <p>Specializes in adult preventive care and complex diagnoses.</p>
+      </div>
+      <div class="doctor">
+        <div class="initial">DM</div>
+        <h3>Dr. Maya Patel</h3>
+        <div class="role">Pediatric &amp; Family Care</div>
+        <p>Sees patients of every age, with a particular focus on children.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="info" id="insurance">
+  <div class="wrap">
+    <div class="info-block"><b>Insurance</b><span>Most major plans accepted — call to confirm yours</span></div>
+    <div class="info-block"><b>New patients</b><span>Currently accepting new patients, no referral needed</span></div>
+    <div class="info-block"><b>Location</b><span>212 Meridian Ave, Suite 4</span></div>
+  </div>
+</div>
+
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">BOOK AN APPOINTMENT</div>
+      <h2>Request a visit</h2>
+      <p>We'll confirm your slot by phone or email within one business day. For medical emergencies, call 911 or go to your nearest emergency room.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Thanks — replace this with your real booking handler.');">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" type="text" required>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="doctor">Preferred doctor</label>
+          <select id="doctor">
+            <option>No preference</option>
+            <option>Dr. Rachel Okafor</option>
+            <option>Dr. David Lin</option>
+            <option>Dr. Maya Patel</option>
+          </select>
+        </div>
+        <div>
+          <label for="type">Visit type</label>
+          <select id="type">
+            <option>New patient visit</option>
+            <option>Follow-up</option>
+            <option>Urgent / same-day</option>
+            <option>Telehealth</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="date">Preferred date</label>
+          <input id="date" type="date">
+        </div>
+        <div>
+          <label for="time">Preferred time</label>
+          <input id="time" type="time">
+        </div>
+      </div>
+      <div>
+        <label for="reason">Reason for visit</label>
+        <textarea id="reason" rows="3"></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Request appointment</button>
+      <p class="form-note">This form doesn't send email on its own — see the notes below for how to connect it in WordPress.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Meridian Family Clinic</div>
+    <div>212 Meridian Ave, Suite 4 · (555) 040-1188</div>
+  </div>
+</footer>
+
+</body>
+</html>
