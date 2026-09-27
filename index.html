@@ -110,6 +110,84 @@
   footer{ border-top:1px solid var(--line); padding: 40px 0; }
   footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:0.88rem; color: rgba(28,27,25,0.65); }
   footer .brand{ font-size:1rem; color: var(--ink); }
+
+/* =========================================
+   PROFESSIONAL CLINIC FOOTER
+========================================= */
+
+.site-footer {
+    width: 100%;
+    background: #f8fafb;
+    border-top: 1px solid #e5e9ec;
+    padding: 32px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Copyright */
+.site-footer p {
+    margin: 0;
+    color: #6b747c;
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+}
+
+/* Website by KASITU Webs */
+.site-footer .crafted-by {
+    margin-top: 8px;
+    color: #8a9298;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
+
+.site-footer .crafted-by a {
+    color: #234f68;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 3px;
+    transition: all 0.3s ease;
+}
+
+.site-footer .crafted-by a:hover {
+    color: #1677a8;
+}
+
+/* Subtle divider between footer text */
+.site-footer .crafted-by::before {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 1px;
+    background: #dce3e7;
+    margin: 0 auto 9px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .site-footer {
+        padding: 26px 15px;
+    }
+
+    .site-footer p {
+        font-size: 12px;
+    }
+
+    .site-footer .crafted-by {
+        font-size: 11px;
+        margin-top: 7px;
+    }
+}
+  
 </style>
 </head>
 <body>
@@ -117,7 +195,7 @@
 <div class="topbar">
   <div class="wrap">
     <span>Mon–Fri, 8am–6pm · Sat, 9am–1pm</span>
-    <span>Urgent same-day slots available — call (555) 040-1188</span>
+    <span>Urgent same-day slots available — call (079) 040-1188</span>
   </div>
 </div>
 
@@ -297,9 +375,22 @@
 <footer>
   <div class="wrap">
     <div class="brand">Meridian Family Clinic</div>
-    <div>212 Meridian Ave, Suite 4 · (555) 040-1188</div>
+    <div>212 Meridian Ave, Soshanguve · (079) 040-1188</div>
   </div>
 </footer>
 
+  <footer class="site-footer">
+    <div class="footer-content">
+        <p>© 2026 Your Salon Name. All Rights Reserved.</p>
+
+        <p class="crafted-by">
+            Website by
+            <a href="https://kasituwebs.co.za/" target="_blank" rel="noopener noreferrer">
+                KASITU Webs
+            </a>
+        </p>
+    </div>
+</footer>
+  
 </body>
 </html>
